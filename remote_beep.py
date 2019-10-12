@@ -26,7 +26,7 @@ while True:
     elif button_code == ir.BOTTOM_LEFT:
         tank_pair.on(left_speed=100, right_speed=-100)
     elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
-        sound.tone([(200, 2000, 400),(800, 1800, 2000)])
+        sound.tone([(500, 1000, 400)] * 3)
     else:
         tank_pair.off()
     sleep(0.01)
