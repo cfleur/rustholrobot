@@ -9,6 +9,7 @@ tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
 sound = Sound()
 # Play a standard beep on boot up
 sound.beep()
+print("beeeep...")
 
 with open('motor.log', 'r') as f:
     for line in f:
@@ -16,4 +17,4 @@ with open('motor.log', 'r') as f:
         lm = int(speeds[0]) 
         rm = int(speeds[1])
         tank_pair.on(left_speed=SpeedDPS(lm), right_speed=SpeedDPS(rm))
-        sleep(0.01)
+        sleep(0.28)

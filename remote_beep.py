@@ -16,6 +16,7 @@ ir.mode = ir.MODE_IR_REMOTE
 sound = Sound()
 # Play a standard beep on boot up
 sound.beep()
+print("beeeeeep...")
 
 
 while True:
@@ -41,17 +42,12 @@ while True:
         tank_pair.on(left_speed=-100, right_speed=0)
     elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
         sound.tone([(500, 1000, 400)] * 3)
+        return
     else:
         tank_pair.off()
         lm_sp = 0 
         rm_sp = 0
     
-    values = (lm_sp,rm_sp,'\n')
-    line = str(values)
     with open('motor.log', 'a') as log:
         log.write('{}, {},\n'.format(lm_sp,rm_sp))
-    #    log.write(lm_sp)
-    #    log.write(',')
-    #    log.write(lm_sp)
-    #    log.write('\n')
     sleep(0.01)
