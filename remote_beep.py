@@ -37,11 +37,11 @@ ir.on_channel1_bottom_left = bottom_left_channel_1_action
 
 while True:
     button_code = ir.value()
-    if button_code == ir.TOP_LEFT_TOP_RIGHT:
+    if button_code == ir.TOP_LEFT:
         steer_pair.on_for_seconds(steering=0, speed=75, seconds=0.5)
-    elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
+    elif button_code == ir.TOP_RIGHT:
         steer_pair.on_for_seconds(steering=100, speed=75, seconds=0.5)
-    elif button_code == ir.BOTTOM_LEFT_TOP_RIGHT:
+    elif button_code == ir.BOTTOM_RIGHT:
         steer_pair.on_for_seconds(steering=0, speed=-75, seconds=0.5)
-    elif button_code == ir.BOTTOM_LEFT_BOTTOM_RIGHT:
+    elif button_code == ir.BOTTOM_LEFT:
         steer_pair.on_for_seconds(steering=-100, speed=75, seconds=0.5)
