@@ -6,6 +6,8 @@ from time import sleep
 
 # Tank pair
 tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
+lm = ev3.LargeMotor('outB');  assert lm.connected  # left motor
+rm = ev3.LargeMotor('outC');  assert rm.connected  # right motor
 
 # Infrared remot
 ir = InfraredSensor()
@@ -37,4 +39,7 @@ while True:
         sound.tone([(500, 1000, 400)] * 3)
     else:
         tank_pair.off()
+        lm_sp = lm.speed_sp
+        rm_sp = rm.speed_sp
+        print("lm: ", lm_sp, "rm: ", rm_sp)
     sleep(0.01)
