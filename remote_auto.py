@@ -50,51 +50,63 @@ while cache == False:
 while cache == True:
     tank_pair.on_for_seconds(100, 100, 1.9)
     sleep(2)
+    # turn 1 left
     tank_pair.on_for_seconds(100, -100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 1.3)
     sleep(1.4)
+    # turn 2 left
     tank_pair.on_for_seconds(100, -100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 1.3)
     sleep(1.4)
+    # turn 3 right
     tank_pair.on_for_seconds(-100, 100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 2.8)
     sleep(2.9)
-    tank_pair.on_for_seconds(100, -100, 0.85)
+    # turn 4 right
+    tank_pair.on_for_seconds(-100, 100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 1.3)
     sleep(1.4)
-    tank_pair.on_for_seconds(100, -100, 0.42)
+    # turn 5 half-right
+    tank_pair.on_for_seconds(-100, 100, 0.42)
     sleep(0.5)
     tank_pair.on_for_seconds(100, 100, 1.4)
     sleep(1.5)
-    tank_pair.on_for_seconds(100, -100, 0.42)
+    # turn 6 half-right
+    tank_pair.on_for_seconds(-100, 100, 0.42)
     sleep(0.5)
     tank_pair.on_for_seconds(100, 100, 1.7)
     sleep(1.8)
+    # turn 7 full-right
     tank_pair.on_for_seconds(-100, 100, 1.7)
     sleep(1.8)
     tank_pair.on_for_seconds(100, 100, 0.8)
     sleep(0.9)
-    tank_pair.on_for_seconds(100, -100, 0.85)
+    # turn 8 right
+    tank_pair.on_for_seconds(-100, 100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 0.8)
     sleep(0.9)
-    tank_pair.on_for_seconds(-100, 100, 0.85)
+    # turn 9 left
+    tank_pair.on_for_seconds(100, -100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 1.5)
     sleep(1.6)
-    tank_pair.on_for_seconds(100, -100, 0.85)
+    # turn 10 right
+    tank_pair.on_for_seconds(-100, 100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 2.5)
     sleep(2.6)
-    tank_pair.on_for_seconds(100, -100, 0.85)
+    # turn 11 right
+    tank_pair.on_for_seconds(-100, 100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 4.2)
     sleep(4.3)
-    tank_pair.on_for_seconds(-100, 100, 0.85)
+    # turn 12 left
+    tank_pair.on_for_seconds(100, -100, 0.85)
     sleep(0.9)
     tank_pair.on_for_seconds(100, 100, 0.9)
     sleep(1)
