@@ -6,8 +6,8 @@ from time import sleep
 
 # Tank pair
 tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
-lm = LargeMotor('outB');  assert lm.connected  # left motor
-rm = LargeMotor('outC');  assert rm.connected  # right motor
+lm = LargeMotor('outB');  # assert lm.connected  # left motor
+rm = LargeMotor('outC');  # assert rm.connected  # right motor
 
 # Infrared remot
 ir = InfraredSensor()
