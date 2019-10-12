@@ -4,19 +4,22 @@ from ev3dev2.sensor.lego import InfraredSensor
 from time import sleep
 
 # Infrared remote
-remote = InfraredSensor()
-remote.mode = remote.MODE_IR_REMOTE
+ir = InfraredSensor()
 
 sound = Sound()
 #play a standard beep
 sound.beep()
 
-while True:
-        # Read remote
-        button_code = remote.value()
+def top_left_channel_1_action(state):
+    print("top left on channel 1: %s" % state)
 
-        # Move robot in response to infrared remote
-        if button_code == remote.TOP_LEFT_TOP_RIGHT:
-            sound.speak('Right')
-        if button_code == remote.TOP_LEFT_TOP_RIGHT:
-            sound.speak('Left')
+def bottom_right_channel_1_action(state):
+    print("bottom right on channel 1: %s" % state)
+
+ir = InfraredSensor()
+ir.on_channel1_top_left = top_left_channel_1_action
+ir.on_channel1_bottom_right = bottom_right_channel_1_action
+
+while True:
+    ir.process()
+    time.sleep(0.01)
