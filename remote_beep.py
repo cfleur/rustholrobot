@@ -7,7 +7,7 @@ from time import sleep
 # Tank pair
 tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
 
-# Infrared remote
+# Infrared remot
 ir = InfraredSensor()
 ir.mode = ir.MODE_IR_REMOTE
 
