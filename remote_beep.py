@@ -17,16 +17,16 @@ sound = Sound()
 # Play a standard beep on boot up
 sound.beep()
 
-def top_left_channel_1_action(state):
+def top_left_channel_1_action():
     steer_pair.on_for_seconds(steering=0, speed=50, seconds=1)
 
-def top_right_channel_1_action(state):
+def top_right_channel_1_action():
     steer_pair.on_for_seconds(steering=100, speed=50, seconds=1)
 
-def bottom_right_channel_1_action(state):
+def bottom_right_channel_1_action():
     steer_pair.on_for_seconds(steering=0, speed=-50, seconds=1)
 
-def bottom_left_channel_1_action(state):
+def bottom_left_channel_1_action():
     steer_pair.on_for_seconds(steering=-100, speed=50, seconds=1)
 
     
@@ -36,5 +36,12 @@ ir.on_channel1_bottom_right = bottom_right_channel_1_action
 ir.on_channel1_bottom_left = bottom_left_channel_1_action
 
 while True:
-    ir.process()
-    sleep(0.01)
+    button_code = ir.value()
+    if button_code == remote.TOP_LEFT_TOP_RIGHT:
+        steer_pair.on_for_seconds(steering=0, speed=75, seconds=0.5)
+    elif button_code == remote.TOP_LEFT_BOTTOM_RIGHT:
+        steer_pair.on_for_seconds(steering=100, speed=75, seconds=0.5)
+    elif button_code == remote.BOTTOM_LEFT_TOP_RIGHT:
+        steer_pair.on_for_seconds(steering=0, speed=-75, seconds=0.5)
+    elif button_code == remote.BOTTOM_LEFT_BOTTOM_RIGHT:
+        steer_pair.on_for_seconds(steering=-100, speed=75, seconds=0.5)
