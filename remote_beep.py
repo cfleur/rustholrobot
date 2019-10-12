@@ -19,6 +19,10 @@ while True:
     button_code = ir.value()
     if button_code == ir.TOP_LEFT:
         tank_pair.on(left_speed=100, right_speed=100)
+    elif button_code == ir.TOP_LEFT_BOTTOM_LEFT:
+        tank_pair.on(left_speed=100, right_speed=0)
+    elif button_code == ir.TOP_LEFT_TOP_RIGHT:
+        tank_pair.on(left_speed=0, right_speed=100)
     elif button_code == ir.TOP_RIGHT:
         tank_pair.on(left_speed=-100, right_speed=100)
     elif button_code == ir.BOTTOM_RIGHT:
