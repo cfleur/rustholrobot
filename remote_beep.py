@@ -38,10 +38,12 @@ ir.on_channel1_bottom_left = bottom_left_channel_1_action
 while True:
     button_code = ir.value()
     if button_code == ir.TOP_LEFT:
-        steer_pair.on_for_seconds(steering=0, speed=75, seconds=0.5)
+        steer_pair.on(75, 75)
     elif button_code == ir.TOP_RIGHT:
-        steer_pair.on_for_seconds(steering=100, speed=75, seconds=0.5)
+        steer_pair.on(-75, 75)
     elif button_code == ir.BOTTOM_RIGHT:
-        steer_pair.on_for_seconds(steering=0, speed=-75, seconds=0.5)
+        steer_pair.on(-75,-75)
     elif button_code == ir.BOTTOM_LEFT:
-        steer_pair.on_for_seconds(steering=-100, speed=75, seconds=0.5)
+        steer_pair.on(75, -75)
+    else:
+        steer_pair.off(brake=True)
