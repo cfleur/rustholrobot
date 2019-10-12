@@ -19,6 +19,10 @@ sound.beep()
 
 while True:
     button_code = ir.value()
+    lm_sp = lm.speed_sp
+    rm_sp = rm.speed_sp
+    lm_s = lm.speed
+    rm_s = rm.speed
     if button_code == ir.TOP_LEFT:
         tank_pair.on(left_speed=100, right_speed=100)
     elif button_code == ir.TOP_LEFT_BOTTOM_LEFT:
@@ -41,7 +45,5 @@ while True:
         tank_pair.off()
         lm_sp = 0 
         rm_sp = 0
-    lm_sp = lm.speed_sp
-    rm_sp = rm.speed_sp
-    print("lm: ", lm_sp, "rm: ", rm_sp)
+    print("lm: ", lm_sp, lm_s, "rm: ", rm_sp, rm_s)
     sleep(0.01)
