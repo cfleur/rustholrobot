@@ -12,6 +12,7 @@ steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 
 # Infrared remote
 ir = InfraredSensor()
+ir.mode = ir.MODE_IR_REMOTE
 
 sound = Sound()
 # Play a standard beep on boot up
@@ -47,3 +48,4 @@ while True:
         steer_pair.on(75, -75)
     else:
         steer_pair.off(brake=True)
+    sleep(0.01)
