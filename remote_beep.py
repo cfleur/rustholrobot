@@ -17,12 +17,12 @@ sound = Sound()
 # Play a standard beep on boot up
 sound.beep()
 
+
 while True:
     button_code = ir.value()
     lm_sp = lm.speed_sp
     rm_sp = rm.speed_sp
-    lm_s = lm.speed
-    rm_s = rm.speed
+    
     if button_code == ir.TOP_LEFT:
         tank_pair.on(left_speed=100, right_speed=100)
     elif button_code == ir.TOP_LEFT_BOTTOM_LEFT:
@@ -45,5 +45,13 @@ while True:
         tank_pair.off()
         lm_sp = 0 
         rm_sp = 0
-    print("lm: ", lm_sp, lm_s, "rm: ", rm_sp, rm_s)
+    
+    values = (lm_sp,rm_sp,'\n')
+    line = str(values)
+    with open('motor.log', 'a') as log:
+        log.write('{}, {},\n'.format(lm_sp,rm_sp))
+    #    log.write(lm_sp)
+    #    log.write(',')
+    #    log.write(lm_sp)
+    #    log.write('\n')
     sleep(0.01)
