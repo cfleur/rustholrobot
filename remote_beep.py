@@ -6,6 +6,8 @@ from time import sleep
 
 # Tank pair
 tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
+lm = LargeMotor('outB');  # assert lm.connected  # left motor
+rm = LargeMotor('outC');  # assert rm.connected  # right motor
 
 # Infrared remot
 ir = InfraredSensor()
@@ -17,6 +19,10 @@ sound.beep()
 
 while True:
     button_code = ir.value()
+    lm_sp = lm.speed_sp
+    rm_sp = rm.speed_sp
+    lm_s = lm.speed
+    rm_s = rm.speed
     if button_code == ir.TOP_LEFT:
         tank_pair.on(left_speed=100, right_speed=100)
     elif button_code == ir.TOP_LEFT_BOTTOM_LEFT:
@@ -37,4 +43,7 @@ while True:
         sound.tone([(500, 1000, 400)] * 3)
     else:
         tank_pair.off()
+        lm_sp = 0 
+        rm_sp = 0
+    print("lm: ", lm_sp, lm_s, "rm: ", rm_sp, rm_s)
     sleep(0.01)
