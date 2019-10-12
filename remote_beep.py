@@ -18,13 +18,15 @@ sound.beep()
 while True:
     button_code = ir.value()
     if button_code == ir.TOP_LEFT:
-        tank_pair.on(left_speed=50, right_speed=50)
+        tank_pair.on(left_speed=100, right_speed=100)
     elif button_code == ir.TOP_RIGHT:
-        tank_pair.on(left_speed=-75, right_speed=75)
+        tank_pair.on(left_speed=-100, right_speed=100)
     elif button_code == ir.BOTTOM_RIGHT:
-        tank_pair.on(left_speed=-75, right_speed=-75)
+        tank_pair.on(left_speed=-100, right_speed=-100)
     elif button_code == ir.BOTTOM_LEFT:
-        tank_pair.on(left_speed=75, right_speed=-75)
+        tank_pair.on(left_speed=100, right_speed=-100)
+    elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
+        sound.tone([(200, 2000, 400),(800, 1800, 2000)])
     else:
         tank_pair.off()
     sleep(0.01)
