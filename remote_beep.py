@@ -29,6 +29,10 @@ while True:
         tank_pair.on(left_speed=-100, right_speed=-100)
     elif button_code == ir.BOTTOM_LEFT:
         tank_pair.on(left_speed=100, right_speed=-100)
+    elif button_code == ir.BOTTOM_LEFT_BOTTOM_RIGHT:
+        tank.pair.on(left_speed=0, right_speed=-100)
+    elif button_code == ir.TOP_RIGHT_BOTTOM_RIGHT:
+        tank.pair.on(left_speed=-100, right_speed=0)
     elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
         sound.tone([(500, 1000, 400)] * 3)
     else:
