@@ -22,4 +22,4 @@ ir.on_channel1_bottom_right = bottom_right_channel_1_action
 
 while True:
     ir.process()
-    time.sleep(0.01)
+    sleep(0.01)
