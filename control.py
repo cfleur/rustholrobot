@@ -21,25 +21,29 @@ sound.beep()
 
 while True:
     button_code = ir.value()
-    if button_code == ir.TOP_LEFT:
+    if ir.top_left(channel=1) == True and ir.top_right(channel=4) == True:
         tank_pair.on(left_speed=100, right_speed=100)
-    elif button_code == ir.TOP_LEFT_BOTTOM_LEFT:
-        tank_pair.on(left_speed=100, right_speed=0)
-    elif button_code == ir.TOP_LEFT_TOP_RIGHT:
-        tank_pair.on(left_speed=0, right_speed=100)
-    elif button_code == ir.TOP_RIGHT:
-        tank_pair.on(left_speed=-100, right_speed=100)
-    elif button_code == ir.BOTTOM_RIGHT:
+    elif ir.bottom_left(channel=1) == True and ir.bottom_right(channel=4) == True:
         tank_pair.on(left_speed=-100, right_speed=-100)
-    elif button_code == ir.BOTTOM_LEFT:
+    elif ir.top_left(channel=1) == True and ir.bottom_right(channel=4) == True:
         tank_pair.on(left_speed=100, right_speed=-100)
-    elif button_code == ir.BOTTOM_LEFT_BOTTOM_RIGHT:
-        tank_pair.on(left_speed=0, right_speed=-100)
-    elif button_code == ir.TOP_RIGHT_BOTTOM_RIGHT:
+    elif ir.top_right(channel=4) == True and ir.bottom_left(channel=1) == True:
+        tank_pair.on(left_speed=-100, right_speed=100)
+    elif ir.top_left(channel=1) == True:
+        tank_pair.on(left_speed=100, right_speed=0)
+    elif ir.bottom_left(channel=1) == True:
         tank_pair.on(left_speed=-100, right_speed=0)
+    elif ir.top_right(channel=4) == True:
+        tank_pair.on(left_speed=0, right_speed=100)
+    elif ir.bottom_right(channel=4) == True:
+        tank_pair.on(left_speed=0, right_speed=-100)
+    elif ir.bottom_right(channel=1) == True:
+        tank_pair.on(left_speed=-100, right_speed=-100)
+    elif ir.bottom_left(channel=1) == True:
+        tank_pair.on(left_speed=100, right_speed=-100)
     elif button_code == ir.TOP_LEFT_BOTTOM_RIGHT:
         mm.run_timed(time_sp=5, speed_sp=1000)
-    elif button_code == ir.TOP_RIGHT_BOTTOM_LEFT:
+    elif button_code == 7:
         mm.run_timed(time_sp=5, speed_sp=-1000)
     else:
         tank_pair.off()
