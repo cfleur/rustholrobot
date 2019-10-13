@@ -4,7 +4,6 @@ from ev3dev2.sound import Sound
 from ev3dev2.sensor.lego import InfraredSensor
 from time import sleep
 
-
 # Grabber arm
 mm = MediumMotor('outA')
 
@@ -15,16 +14,15 @@ tank_pair = MoveTank(OUTPUT_B, OUTPUT_C)
 ir = InfraredSensor()
 ir.mode = ir.MODE_IR_REMOTE
 
+# Sound module
 sound = Sound()
-# Play a standard beep on boot up
 sound.beep()
 
 while True:
+
     button_code = ir.value()
-    #Forward
     if ir.top_left(channel=1) == True and ir.top_right(channel=4) == True:
         tank_pair.on(left_speed=100, right_speed=100)
-    #Backward
     elif ir.bottom_left(channel=1) == True and ir.bottom_right(channel=4) == True:
         tank_pair.on(left_speed=-100, right_speed=-100)
     elif ir.top_left(channel=1) == True and ir.bottom_right(channel=4) == True:
